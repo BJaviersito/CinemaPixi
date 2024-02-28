@@ -47,7 +47,7 @@ class HistorialController extends Controller
 
         $historial = Historial::create($request->all());
 
-        return redirect()->route('historials.index')
+        return redirect()->route('historial.index')
             ->with('success', 'Historial created successfully.');
     }
 
@@ -90,7 +90,7 @@ class HistorialController extends Controller
 
         $historial->update($request->all());
 
-        return redirect()->route('historials.index')
+        return redirect()->route('historial.index')
             ->with('success', 'Historial updated successfully');
     }
 
@@ -103,7 +103,7 @@ class HistorialController extends Controller
     {
         $historial = Historial::find($id)->delete();
 
-        return redirect()->route('historials.index')
+        return redirect()->route('historial.index')
             ->with('success', 'Historial deleted successfully');
     }
 }

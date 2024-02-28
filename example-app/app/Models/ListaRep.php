@@ -22,6 +22,8 @@ class ListaRep extends Model
     ];
 
     protected $perPage = 20;
+    protected $table='lista_rep';
+    protected $primaryKey='id';
 
     /**
      * Attributes that should be mass-assignable.

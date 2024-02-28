@@ -47,7 +47,7 @@ class ResenaController extends Controller
 
         $resena = Resena::create($request->all());
 
-        return redirect()->route('resenas.index')
+        return redirect()->route('resena.index')
             ->with('success', 'Resena created successfully.');
     }
 
@@ -90,7 +90,7 @@ class ResenaController extends Controller
 
         $resena->update($request->all());
 
-        return redirect()->route('resenas.index')
+        return redirect()->route('resena.index')
             ->with('success', 'Resena updated successfully');
     }
 
@@ -103,7 +103,7 @@ class ResenaController extends Controller
     {
         $resena = Resena::find($id)->delete();
 
-        return redirect()->route('resenas.index')
+        return redirect()->route('resena.index')
             ->with('success', 'Resena deleted successfully');
     }
 }

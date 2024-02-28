@@ -29,6 +29,8 @@ class Resena extends Model
     ];
 
     protected $perPage = 20;
+    protected $table='resena';
+    protected $primaryKey='id';
 
     /**
      * Attributes that should be mass-assignable.

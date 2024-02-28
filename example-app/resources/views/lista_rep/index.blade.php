@@ -17,7 +17,7 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('lista-reps.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('lista_rep.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -49,9 +49,9 @@
 											<td>{{ $listaRep->Nombre_lista }}</td>
 
                                             <td>
-                                                <form action="{{ route('lista-reps.destroy',$listaRep->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('lista-reps.show',$listaRep->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('lista-reps.edit',$listaRep->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('lista_rep.destroy',$listaRep->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('lista_rep.show',$listaRep->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('lista_rep.edit',$listaRep->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>

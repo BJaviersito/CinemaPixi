@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Historial</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('historials.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('historial.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

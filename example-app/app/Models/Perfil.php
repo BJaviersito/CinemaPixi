@@ -37,6 +37,8 @@ class Perfil extends Model
     ];
 
     protected $perPage = 20;
+    protected $table='perfil';
+    protected $primaryKey='id';
 
     /**
      * Attributes that should be mass-assignable.

@@ -47,7 +47,7 @@ class PerfilController extends Controller
 
         $perfil = Perfil::create($request->all());
 
-        return redirect()->route('perfils.index')
+        return redirect()->route('perfil.index')
             ->with('success', 'Perfil created successfully.');
     }
 
@@ -90,7 +90,7 @@ class PerfilController extends Controller
 
         $perfil->update($request->all());
 
-        return redirect()->route('perfils.index')
+        return redirect()->route('perfil.index')
             ->with('success', 'Perfil updated successfully');
     }
 
@@ -103,7 +103,7 @@ class PerfilController extends Controller
     {
         $perfil = Perfil::find($id)->delete();
 
-        return redirect()->route('perfils.index')
+        return redirect()->route('perfil.index')
             ->with('success', 'Perfil deleted successfully');
     }
 }

@@ -16,7 +16,7 @@
                         <span class="card-title">{{ __('Update') }} Historial</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('historials.update', $historial->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('historial.update', $historial->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

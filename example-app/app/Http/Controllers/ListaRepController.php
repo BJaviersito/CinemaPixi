@@ -20,7 +20,7 @@ class ListaRepController extends Controller
     {
         $listaReps = ListaRep::paginate();
 
-        return view('lista-rep.index', compact('listaReps'))
+        return view('lista_rep.index', compact('listaReps'))
             ->with('i', (request()->input('page', 1) - 1) * $listaReps->perPage());
     }
 
@@ -32,7 +32,7 @@ class ListaRepController extends Controller
     public function create()
     {
         $listaRep = new ListaRep();
-        return view('lista-rep.create', compact('listaRep'));
+        return view('lista_rep.create', compact('listaRep'));
     }
 
     /**
@@ -47,7 +47,7 @@ class ListaRepController extends Controller
 
         $listaRep = ListaRep::create($request->all());
 
-        return redirect()->route('lista-reps.index')
+        return redirect()->route('lista_rep.index')
             ->with('success', 'ListaRep created successfully.');
     }
 
@@ -61,7 +61,7 @@ class ListaRepController extends Controller
     {
         $listaRep = ListaRep::find($id);
 
-        return view('lista-rep.show', compact('listaRep'));
+        return view('lista_rep.show', compact('listaRep'));
     }
 
     /**
@@ -74,7 +74,7 @@ class ListaRepController extends Controller
     {
         $listaRep = ListaRep::find($id);
 
-        return view('lista-rep.edit', compact('listaRep'));
+        return view('lista_rep.edit', compact('listaRep'));
     }
 
     /**
@@ -90,7 +90,7 @@ class ListaRepController extends Controller
 
         $listaRep->update($request->all());
 
-        return redirect()->route('lista-reps.index')
+        return redirect()->route('lista_rep.index')
             ->with('success', 'ListaRep updated successfully');
     }
 
@@ -103,7 +103,7 @@ class ListaRepController extends Controller
     {
         $listaRep = ListaRep::find($id)->delete();
 
-        return redirect()->route('lista-reps.index')
+        return redirect()->route('lista_rep.index')
             ->with('success', 'ListaRep deleted successfully');
     }
 }

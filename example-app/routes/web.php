@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\ListaRepController;
+use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\ResenaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +36,11 @@ Route::get('/Series', function () {
 });
 
 Route::resource('pelicula', PeliculaController::class);
+Route::resource('perfil', PerfilController::class);
+Route::resource('lista_rep', ListaRepController::class);
+Route::resource('historial', HistorialController::class);
+Route::resource('resena', ResenaController::class);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

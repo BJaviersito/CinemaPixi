@@ -17,7 +17,7 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('perfils.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('perfil.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -59,9 +59,9 @@
 											<td>{{ $perfil->Imagen }}</td>
 
                                             <td>
-                                                <form action="{{ route('perfils.destroy',$perfil->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('perfils.show',$perfil->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('perfils.edit',$perfil->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('perfil.destroy',$perfil->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('perfil.show',$perfil->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('perfil.edit',$perfil->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>

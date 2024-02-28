@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Lista Rep</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('lista-reps.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('lista_rep.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

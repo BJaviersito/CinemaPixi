@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Perfil</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('perfils.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('perfil.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
