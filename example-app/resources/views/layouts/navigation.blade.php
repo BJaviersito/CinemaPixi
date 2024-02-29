@@ -7,6 +7,23 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                            div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
                     </a>
                 </div>
 
