@@ -44,7 +44,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categoria as $categoria)
+                                    @foreach ($categorias as $categoria)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $categoria->links() !!}
+                {!! $categorias->links() !!}
             </div>
         </div>
     </div>

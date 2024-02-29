@@ -20,7 +20,7 @@
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('categorium.form')
+                            @include('categoria.form')
 
                         </form>
                     </div>
