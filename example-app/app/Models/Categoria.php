@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Categorium extends Model
+class Categoria extends Model
 {
     
     static $rules = [
@@ -29,6 +29,8 @@ class Categorium extends Model
     ];
 
     protected $perPage = 20;
+    protected $table='categoria';
+    protected $primaryKey='id';
 
     /**
      * Attributes that should be mass-assignable.

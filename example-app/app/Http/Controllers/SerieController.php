@@ -47,7 +47,7 @@ class SerieController extends Controller
 
         $serie = Serie::create($request->all());
 
-        return redirect()->route('series.index')
+        return redirect()->route('serie.index')
             ->with('success', 'Serie created successfully.');
     }
 
@@ -90,7 +90,7 @@ class SerieController extends Controller
 
         $serie->update($request->all());
 
-        return redirect()->route('series.index')
+        return redirect()->route('serie.index')
             ->with('success', 'Serie updated successfully');
     }
 
@@ -103,7 +103,7 @@ class SerieController extends Controller
     {
         $serie = Serie::find($id)->delete();
 
-        return redirect()->route('series.index')
+        return redirect()->route('serie.index')
             ->with('success', 'Serie deleted successfully');
     }
 }

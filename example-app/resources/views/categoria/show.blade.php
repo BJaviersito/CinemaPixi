@@ -22,15 +22,15 @@
                         
                         <div class="form-group">
                             <strong>Nombre Categoria:</strong>
-                            {{ $categorium->Nombre_Categoria }}
+                            {{ $categoria->Nombre_Categoria }}
                         </div>
                         <div class="form-group">
                             <strong>Pelicula Id:</strong>
-                            {{ $categorium->Pelicula_id }}
+                            {{ $categoria->Pelicula_id }}
                         </div>
                         <div class="form-group">
                             <strong>Serie Id:</strong>
-                            {{ $categorium->Serie_id }}
+                            {{ $categoria->Serie_id }}
                         </div>
 
                     </div>

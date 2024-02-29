@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Serie</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('series.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('serie.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Categorium
+    Categoria
 @endsection
 
 @section('content')
@@ -44,18 +44,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categoria as $categorium)
+                                    @foreach ($categoria as $categoria)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $categorium->Nombre_Categoria }}</td>
-											<td>{{ $categorium->Pelicula_id }}</td>
-											<td>{{ $categorium->Serie_id }}</td>
+											<td>{{ $categoria->Nombre_Categoria }}</td>
+											<td>{{ $categoria->Pelicula_id }}</td>
+											<td>{{ $categoria->Serie_id }}</td>
 
                                             <td>
-                                                <form action="{{ route('categoria.destroy',$categorium->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('categoria.show',$categorium->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('categoria.edit',$categorium->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('categoria.destroy',$categoria->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categoria.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('categoria.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>

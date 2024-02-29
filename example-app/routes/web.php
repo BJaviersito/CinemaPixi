@@ -6,6 +6,8 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ListaRepController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\ResenaController;
+use App\Http\Controllers\SerieController;
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +42,8 @@ Route::resource('perfil', PerfilController::class);
 Route::resource('lista_rep', ListaRepController::class);
 Route::resource('historial', HistorialController::class);
 Route::resource('resena', ResenaController::class);
+Route::resource('serie', SerieController::class);
+Route::resource('categoria', CategoriaController::class);
 
 
 Route::get('/dashboard', function () {

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categorium;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 /**
  * Class CategoriumController
  * @package App\Http\Controllers
  */
-class CategoriumController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class CategoriumController extends Controller
      */
     public function index()
     {
-        $categoria = Categorium::paginate();
+        $categoria = Categoria::paginate();
 
-        return view('categorium.index', compact('categoria'))
+        return view('categoria.index', compact('categoria'))
             ->with('i', (request()->input('page', 1) - 1) * $categoria->perPage());
     }
 
@@ -31,8 +31,8 @@ class CategoriumController extends Controller
      */
     public function create()
     {
-        $categorium = new Categorium();
-        return view('categorium.create', compact('categorium'));
+        $categoria = new Categoria();
+        return view('categoria.create', compact('categoria'));
     }
 
     /**
@@ -43,12 +43,12 @@ class CategoriumController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Categorium::$rules);
+        request()->validate(Categoria::$rules);
 
-        $categorium = Categorium::create($request->all());
+        $categoria = Categoria::create($request->all());
 
         return redirect()->route('categoria.index')
-            ->with('success', 'Categorium created successfully.');
+            ->with('success', 'Categoria created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class CategoriumController extends Controller
      */
     public function show($id)
     {
-        $categorium = Categorium::find($id);
+        $categoria = Categoria::find($id);
 
-        return view('categorium.show', compact('categorium'));
+        return view('categoria.show', compact('categoria'));
     }
 
     /**
@@ -72,9 +72,9 @@ class CategoriumController extends Controller
      */
     public function edit($id)
     {
-        $categorium = Categorium::find($id);
+        $categoria = Categoria::find($id);
 
-        return view('categorium.edit', compact('categorium'));
+        return view('categoria.edit', compact('categoria'));
     }
 
     /**
@@ -84,14 +84,14 @@ class CategoriumController extends Controller
      * @param  Categorium $categorium
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categorium $categorium)
+    public function update(Request $request, Categoria $categoria)
     {
-        request()->validate(Categorium::$rules);
+        request()->validate(Categoria::$rules);
 
-        $categorium->update($request->all());
+        $categoria->update($request->all());
 
         return redirect()->route('categoria.index')
-            ->with('success', 'Categorium updated successfully');
+            ->with('success', 'Categoria updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class CategoriumController extends Controller
      */
     public function destroy($id)
     {
-        $categorium = Categorium::find($id)->delete();
+        $categoria = Categoria::find($id)->delete();
 
         return redirect()->route('categoria.index')
-            ->with('success', 'Categorium deleted successfully');
+            ->with('success', 'Categoria deleted successfully');
     }
 }

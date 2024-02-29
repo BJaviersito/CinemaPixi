@@ -39,6 +39,8 @@ class Serie extends Model
     ];
 
     protected $perPage = 20;
+    protected $table='serie';
+    protected $primaryKey='id';
 
     /**
      * Attributes that should be mass-assignable.
