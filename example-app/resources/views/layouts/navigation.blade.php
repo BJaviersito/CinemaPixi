@@ -7,21 +7,6 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                            div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                                </li>
-                            </ul>
                             </div>
                         </div>
                     </a>
@@ -31,6 +16,29 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                        <ul class="navbar-nav">
+                                <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{ route('perfil.index') }}">Perfil</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pelicula.index') }}">Pelicula</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">Tipo de video</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('serie.index') }}">Serie</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('resena.index') }}">Reseña</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('historial.index') }}">Historial</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('lista_rep.index') }}">Lista de reproduccion</a>
+                                </li>
+                            </ul>
                     </x-nav-link>
                 </div>
             </div>
