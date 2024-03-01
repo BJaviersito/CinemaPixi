@@ -17,8 +17,8 @@
             {!! $errors->first('N_Temporada', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Imagen') }}
-            {{ Form::text('Imagen', $serie->Imagen, ['class' => 'form-control' . ($errors->has('Imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
+            {{ Form::label('Imagen', 'Imagen') }}
+            {{ Form::file('Imagen', ['class' => 'form-control-file' . ($errors->has('Imagen') ? ' is-invalid' : ''), 'accept' => 'image/*']) }}
             {!! $errors->first('Imagen', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

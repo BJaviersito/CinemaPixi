@@ -43,9 +43,23 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Perfil::$rules);
+        $request->validate([
+            'nombre' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            // Agrega más reglas de validación según sea necesario para otros campos
+        ]);
 
-        $perfil = Perfil::create($request->all());
+        $input = $request->all();
+
+        // Manejo de la imagen
+        if ($image = $request->file('imagen')) {
+            $destinationPath = 'image_path'; // Ruta donde deseas almacenar las imágenes
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['imagen'] = $profileImage;
+        }
+
+        Perfil::create($input);
 
         return redirect()->route('perfil.index')
             ->with('success', 'Perfil created successfully.');
@@ -86,13 +100,30 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
-        request()->validate(Perfil::$rules);
+        $request->validate([
+            'nombre' => 'required',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            // Agrega más reglas de validación según sea necesario para otros campos
+        ]);
 
-        $perfil->update($request->all());
+        $input = $request->all();
+
+        // Manejo de la imagen
+        if ($image = $request->file('imagen')) {
+            $destinationPath = 'image_path'; // Ruta donde deseas almacenar las imágenes
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['imagen'] = $profileImage;
+        } else {
+            unset($input['imagen']); // Elimina el campo de imagen si no se ha proporcionado una nueva imagen
+        }
+
+        $perfil->update($input);
 
         return redirect()->route('perfil.index')
             ->with('success', 'Perfil updated successfully');
     }
+
 
     /**
      * @param int $id

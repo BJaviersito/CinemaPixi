@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('Correo');
             $table->string('Contrasena');
             $table->date('FechaRegistros');
+            $table->timestamps();
         });
     }
 

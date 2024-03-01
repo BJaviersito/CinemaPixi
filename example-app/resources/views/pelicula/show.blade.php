@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Imagen:</strong>
-                            {{ $pelicula->Imagen }}
+                        <img src="{{ asset('image_path/' . $pelicula->Imagen) }}" alt="{{ $pelicula->Titulo_peli }}" style="max-width: 300px; max-height: 300px;">
                         </div>
                         <div class="form-group">
                             <strong>Descripcion:</strong>

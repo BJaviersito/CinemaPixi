@@ -16,39 +16,36 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                        <ul class="navbar-nav">
-                                <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{ route('perfil.index') }}">Perfil</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="{{ route('pelicula.index') }}">Pelicula</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">Tipo de video</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="{{ route('serie.index') }}">Serie</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="{{ route('resena.index') }}">Reseña</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="{{ route('historial.index') }}">Historial</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="{{ route('lista_rep.index') }}">Lista de reproduccion</a>
-                                </li>
-                            </ul>
+                    </x-nav-link>
+                    <x-nav-link :href="route('Cinema')" :active="request()->routeIs('Cinema')">
+                        {{ __('CINEMA') }}
                     </x-nav-link>
                 </div>
             </div>
-
+            <ul class="navbar-nav" >
+                <!-- Agregar otras listas de navegación aquí -->
+                <li class="nav-item dropdown" style="margin-left: 4rem; margin-top: 1.5rem;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Opciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('pelicula.index') }}">Pelicula</a>
+                        <a class="dropdown-item" href="{{ route('perfil.index') }}">Perfil</a>
+                        <a class="dropdown-item" href="{{ route('tipo_video.index') }}">Tipo de video</a>
+                        <a class="dropdown-item" href="{{ route('serie.index') }}">Serie</a>
+                        <a class="dropdown-item" href="{{ route('resena.index') }}">Reseña</a>
+                        <a class="dropdown-item" href="{{ route('historial.index') }}">Historial</a>
+                        <a class="dropdown-item" href="{{ route('lista_rep.index') }}">Lista de reproduccion</a>
+                        <a class="dropdown-item" href="{{ route('usuario.index') }}">Usuario</a>
+                    </div>
+                </li>
+            </ul>
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
+            <div class="hidden sm:flex sm:items-center sm:ms-6 sm:justify-end">
+                <x-dropdown align="left" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div style="padding: 1rem;">{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -71,6 +68,9 @@
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('Cinema')">
+                                {{ __('Cinema') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -95,6 +95,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('Cinema')" :active="request()->routeIs('Cinema')">
+                {{ __('CINEMA') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -113,10 +116,8 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                    <x-responsive-nav-link :href="route('Cinema')">
+                        {{ __('Cinema') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

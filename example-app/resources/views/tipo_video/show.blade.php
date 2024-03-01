@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Tipo Video</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('tipo-videos.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('tipo_video.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

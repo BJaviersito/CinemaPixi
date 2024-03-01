@@ -43,13 +43,28 @@ class PeliculaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Pelicula::$rules);
+        $request->validate([
+            'Titulo_peli' => 'required',
+            'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            // Agrega más reglas de validación según sea necesario para otros campos
+        ]);
 
-        $pelicula = Pelicula::create($request->all());
+        $input = $request->all();
+
+        // Manejo de la imagen
+        if ($image = $request->file('Imagen')) {
+            $destinationPath = 'image_path'; // Ruta donde deseas almacenar las imágenes
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['Imagen'] = "$profileImage";
+        }
+
+        Pelicula::create($input);
 
         return redirect()->route('pelicula.index')
             ->with('success', 'Pelicula created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -86,9 +101,25 @@ class PeliculaController extends Controller
      */
     public function update(Request $request, Pelicula $pelicula)
     {
-        request()->validate(Pelicula::$rules);
+        $request->validate([
+            'Titulo_peli' => 'required',
+            'Imagen' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            // Agrega más reglas de validación según sea necesario para otros campos
+        ]);
 
-        $pelicula->update($request->all());
+        $input = $request->all();
+
+        // Manejo de la imagen
+        if ($image = $request->file('Imagen')) {
+            $destinationPath = 'image_path'; // Ruta donde deseas almacenar las imágenes
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['Imagen'] = "$profileImage";
+        } else {
+            unset($input['Imagen']); // Elimina el campo de imagen si no se ha proporcionado una nueva imagen
+        }
+
+        $pelicula->update($input);
 
         return redirect()->route('pelicula.index')
             ->with('success', 'Pelicula updated successfully');

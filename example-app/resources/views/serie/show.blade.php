@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Imagen:</strong>
-                            {{ $serie->Imagen }}
+                            <img src="{{ asset('image_path/' . $serie->Imagen) }}" alt="{{ $serie->Titulo_serie }}" style="max-width: 300px; max-height: 300px;">
                         </div>
                         <div class="form-group">
                             <strong>Descripcion:</strong>

@@ -27,11 +27,10 @@
             {!! $errors->first('Resena_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Imagen') }}
-            {{ Form::text('Imagen', $perfil->Imagen, ['class' => 'form-control' . ($errors->has('Imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
-            {!! $errors->first('Imagen', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('imagen', 'Imagen') }}
+            {{ Form::file('imagen', ['class' => 'form-control-file' . ($errors->has('imagen') ? ' is-invalid' : ''), 'accept' => 'image/*']) }}
+            {!! $errors->first('imagen', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>

@@ -20,7 +20,7 @@ class TipoVideoController extends Controller
     {
         $tipoVideos = TipoVideo::paginate();
 
-        return view('tipo-video.index', compact('tipoVideos'))
+        return view('tipo_video.index', compact('tipoVideos'))
             ->with('i', (request()->input('page', 1) - 1) * $tipoVideos->perPage());
     }
 
@@ -32,7 +32,7 @@ class TipoVideoController extends Controller
     public function create()
     {
         $tipoVideo = new TipoVideo();
-        return view('tipo-video.create', compact('tipoVideo'));
+        return view('tipo_video.create', compact('tipoVideo'));
     }
 
     /**
@@ -47,7 +47,7 @@ class TipoVideoController extends Controller
 
         $tipoVideo = TipoVideo::create($request->all());
 
-        return redirect()->route('tipo-videos.index')
+        return redirect()->route('tipo_video.index')
             ->with('success', 'TipoVideo created successfully.');
     }
 
@@ -61,7 +61,7 @@ class TipoVideoController extends Controller
     {
         $tipoVideo = TipoVideo::find($id);
 
-        return view('tipo-video.show', compact('tipoVideo'));
+        return view('tipo_video.show', compact('tipoVideo'));
     }
 
     /**
@@ -74,7 +74,7 @@ class TipoVideoController extends Controller
     {
         $tipoVideo = TipoVideo::find($id);
 
-        return view('tipo-video.edit', compact('tipoVideo'));
+        return view('tipo_video.edit', compact('tipoVideo'));
     }
 
     /**
@@ -90,7 +90,7 @@ class TipoVideoController extends Controller
 
         $tipoVideo->update($request->all());
 
-        return redirect()->route('tipo-videos.index')
+        return redirect()->route('tipo_video.index')
             ->with('success', 'TipoVideo updated successfully');
     }
 
@@ -103,7 +103,7 @@ class TipoVideoController extends Controller
     {
         $tipoVideo = TipoVideo::find($id)->delete();
 
-        return redirect()->route('tipo-videos.index')
+        return redirect()->route('tipo_video.index')
             ->with('success', 'TipoVideo deleted successfully');
     }
 }

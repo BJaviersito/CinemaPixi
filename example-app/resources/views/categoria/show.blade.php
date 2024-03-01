@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $categorium->name ?? "{{ __('Show') Categorium" }}
+    {{ $categoria->name ?? "{{ __('Show') Categoria" }}
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Categorium</span>
+                            <span class="card-title">{{ __('Show') }} Categoria</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('categoria.index') }}"> {{ __('Back') }}</a>

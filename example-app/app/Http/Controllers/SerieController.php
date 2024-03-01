@@ -43,9 +43,23 @@ class SerieController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Serie::$rules);
+        $request->validate([
+            'Titulo_serie' => 'required',
+            'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            // Agrega más reglas de validación según sea necesario para otros campos
+        ]);
 
-        $serie = Serie::create($request->all());
+        $input = $request->all();
+
+        // Manejo de la imagen
+        if ($image = $request->file('Imagen')) {
+            $destinationPath = 'image_path'; // Ruta donde deseas almacenar las imágenes
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['Imagen'] = $profileImage;
+        }
+
+        Serie::create($input);
 
         return redirect()->route('serie.index')
             ->with('success', 'Serie created successfully.');
@@ -86,9 +100,25 @@ class SerieController extends Controller
      */
     public function update(Request $request, Serie $serie)
     {
-        request()->validate(Serie::$rules);
+        $request->validate([
+            'Titulo_serie' => 'required',
+            'Imagen' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+            // Agrega más reglas de validación según sea necesario para otros campos
+        ]);
 
-        $serie->update($request->all());
+        $input = $request->all();
+
+        // Manejo de la imagen
+        if ($image = $request->file('Imagen')) {
+            $destinationPath = 'image_path'; // Ruta donde deseas almacenar las imágenes
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['Imagen'] = "$profileImage";
+        } else {
+            unset($input['Imagen']); // Elimina el campo de imagen si no se ha proporcionado una nueva imagen
+        }
+
+        $serie->update($input);
 
         return redirect()->route('serie.index')
             ->with('success', 'Serie updated successfully');

@@ -41,8 +41,8 @@
                             {{ $perfil->Resena_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Imagen:</strong>
-                            {{ $perfil->Imagen }}
+                            <strong>Imagen:</strong><br>
+                            <img src="{{ asset('image_path' . $perfil->Imagen) }}" alt="{{ $perfil->Nombre }}" style="max-width: 300px;">
                         </div>
 
                     </div>
